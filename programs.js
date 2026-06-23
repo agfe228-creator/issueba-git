@@ -1,43 +1,63 @@
+var LABELS = {
+  youth: "\uCCAD\uB144\uC9C0\uC6D0",
+  smallbiz: "\uC18C\uC0C1\uACF5\uC778",
+  startup: "\uCC3D\uC5C5\uC9C0\uC6D0",
+  housing: "\uC8FC\uAC70\uC9C0\uC6D0",
+  welfare: "\uBCF5\uC9C0\uD61C\uD0DD",
+  local: "\uC9C0\uC5ED\uBCC4 \uC9C0\uC6D0\uAE08",
+  open: "\uC2E0\uCCAD\uC911",
+  deadline: "\uB9C8\uAC10\uC784\uBC15",
+  period: "\uAE30\uAC04",
+  end: "\uB9C8\uAC10",
+  check: "\uACF5\uC2DD \uACF5\uACE0 \uD655\uC778"
+};
+
 window.SUPPORT_PROGRAMS = [
-  ["youth-rent","청년 월세 한시 특별지원","청년지원","blue","신청중","green","open","기간","공식 공고 확인","만 19~34세 무주택 청년","월 최대 20만원","복지로","https://www.bokjiro.go.kr/"],
-  ["kua-youth","국민취업지원제도 청년층 지원","청년지원","blue","신청중","green","open","기간","상시 신청 확인","취업을 준비하는 청년","구직촉진수당 및 취업지원서비스","국민취업지원제도","https://www.kua.go.kr/"],
-  ["youth-leap-account","청년도약계좌","청년지원","blue","신청중","green","open","기간","월별 신청기간 확인","소득요건을 충족한 청년","정부기여금 및 비과세 혜택","서민금융진흥원","https://ylaccount.kinfa.or.kr/"],
-  ["youth-job-allowance","청년 취업성공수당","청년지원","blue","마감임박","amber","deadline","마감","공식 공고 확인","취업지원 프로그램 참여 청년","최대 150만원","고용24","https://www.work24.go.kr/"],
-  ["youth-savings","청년내일저축계좌","청년지원","blue","신청중","green","open","기간","복지로 모집공고 확인","근로 중인 저소득 청년","근로소득장려금 매칭 지원","복지로","https://www.bokjiro.go.kr/"],
-  ["smallbiz-digital","소상공인 디지털 전환 지원사업","소상공인","mint","신청중","green","open","기간","기관별 공고 확인","소상공인","최대 100만원","소상공인24","https://www.sbiz24.kr/"],
-  ["smallbiz-policy-fund","소상공인 정책자금","소상공인","mint","신청중","green","open","기간","자금별 접수일정 확인","소상공인 및 자영업자","정책자금 융자","소상공인정책자금","https://ols.semas.or.kr/"],
-  ["smallbiz-electricity","소상공인 전기요금 특별지원","소상공인","mint","신청중","green","open","기간","공식 접수일정 확인","전기요금 부담 소상공인","전기요금 일부 지원","소상공인24","https://www.sbiz24.kr/"],
-  ["smallbiz-online","소상공인 온라인 판로지원","소상공인","mint","신청중","green","open","기간","소상공인24 공고 확인","온라인 진출 희망 소상공인","판로·마케팅 지원","소상공인24","https://www.sbiz24.kr/"],
-  ["startup-package","초기 창업패키지 지원사업","창업지원","orange","신청중","green","open","기간","K-Startup 공고 확인","예비창업자, 3년 이내 창업기업","최대 1억원","K-Startup","https://www.k-startup.go.kr/"],
-  ["pre-startup","예비창업패키지","창업지원","orange","신청중","green","open","기간","K-Startup 공고 확인","예비창업자","사업화 자금 지원","K-Startup","https://www.k-startup.go.kr/"],
-  ["startup-leap","창업 도약패키지 지원사업","창업지원","orange","마감임박","amber","deadline","마감","K-Startup 공고 확인","3~7년 이내 창업기업","최대 3억원","K-Startup","https://www.k-startup.go.kr/"],
-  ["tips","TIPS 프로그램","창업지원","orange","신청중","green","open","기간","운영사 및 공고 확인","기술창업 스타트업","투자연계 R&D 지원","TIPS","https://www.jointips.or.kr/"],
-  ["jeonse-loan","버팀목 전세자금대출","주거지원","purple","신청중","green","open","기간","상품별 확인","무주택 세대주","전세자금 대출 지원","주택도시기금","https://nhuf.molit.go.kr/"],
-  ["newlywed-jeonse","신혼부부 전세자금 대출이자 지원","주거지원","purple","신청중","green","open","기간","지자체 공고 확인","신혼부부","연 최대 100만원","정부24","https://www.gov.kr/"],
-  ["housing-benefit","주거급여","주거지원","purple","신청중","green","open","기간","상시 신청 확인","소득인정액 기준 충족 가구","임차료 또는 수선유지비 지원","복지로","https://www.bokjiro.go.kr/"],
-  ["youth-jeonse-return","청년 전세보증금 반환보증 보증료 지원","주거지원","purple","마감임박","amber","deadline","마감","정부24 공고 확인","청년 임차인","최대 30만원","정부24","https://www.gov.kr/"],
-  ["earned-income-tax-credit","근로장려금","복지혜택","purple","신청중","green","open","기간","국세청 신청기간 확인","소득요건 충족 근로·사업 가구","가구유형별 차등 지급","국세청 홈택스","https://www.hometax.go.kr/"],
-  ["culture-nuri","문화누리카드","복지혜택","purple","신청중","green","open","기간","연도별 이용기간 확인","기초생활수급자·차상위계층","문화예술·여행·체육 바우처","문화누리","https://www.mnuri.kr/"],
-  ["energy-voucher","에너지바우처","복지혜택","purple","신청중","green","open","기간","공식 공고 확인","취약계층 가구","가구별 차등 지원","에너지바우처","https://www.energyv.or.kr/"],
-  ["child-care","아이돌봄서비스 정부지원","복지혜택","purple","신청중","green","open","기간","상시 신청 확인","돌봄이 필요한 가정","돌봄 이용요금 일부 지원","아이돌봄서비스","https://www.idolbom.go.kr/"],
-  ["seoul-youth","서울시 청년수당","지역별 지원금","mint","신청중","green","open","기간","서울시 공고 확인","서울 거주 미취업 청년","공고별 확인","청년몽땅정보통","https://youth.seoul.go.kr/"],
-  ["gg-youth-income","경기도 청년기본소득","지역별 지원금","mint","신청중","green","open","기간","경기도 공고 확인","경기도 거주 청년","분기별 지원","잡아바 어플라이","https://apply.jobaba.net/"],
-  ["busan-youth","부산 청년 디딤돌카드","지역별 지원금","mint","신청중","green","open","기간","부산시 공고 확인","부산 거주 미취업 청년","활동비 지원","부산광역시","https://www.busan.go.kr/"]
+  ["youth-rent", "\uCCAD\uB144 \uC6D4\uC138 \uD55C\uC2DC \uD2B9\uBCC4\uC9C0\uC6D0", "youth", "open", LABELS.period, LABELS.check, "\uB9CC 19~34\uC138 \uCCAD\uB144", "\uC6D4 \uCD5C\uB300 20\uB9CC\uC6D0", "\uBCF5\uC9C0\uB85C", "https://www.bokjiro.go.kr/"],
+  ["kua-youth", "\uAD6D\uBBFC\uCDE8\uC5C5\uC9C0\uC6D0\uC81C\uB3C4", "youth", "open", LABELS.period, "\uC0C1\uC2DC \uC2E0\uCCAD \uD655\uC778", "\uCDE8\uC5C5 \uC900\uBE44 \uCCAD\uB144", "\uAD6C\uC9C1\uCD09\uC9C4\uC218\uB2F9", "\uACE0\uC6A924", "https://www.work24.go.kr/"],
+  ["youth-leap-account", "\uCCAD\uB144\uB3C4\uC57D\uACC4\uC88C", "youth", "open", LABELS.period, "\uC6D4\uBCC4 \uC2E0\uCCAD \uD655\uC778", "\uC18C\uB4DD\uC694\uAC74 \uCDA9\uC871 \uCCAD\uB144", "\uC815\uBD80\uAE30\uC5EC\uAE08", "\uC11C\uBBFC\uAE08\uC735\uC9C4\uD765\uC6D0", "https://ylaccount.kinfa.or.kr/"],
+  ["youth-job", "\uCCAD\uB144 \uCDE8\uC5C5\uC131\uACF5\uC218\uB2F9", "youth", "deadline", LABELS.end, LABELS.check, "\uCDE8\uC5C5\uC9C0\uC6D0 \uCC38\uC5EC \uCCAD\uB144", "\uCD5C\uB300 150\uB9CC\uC6D0", "\uACE0\uC6A924", "https://www.work24.go.kr/"],
+  ["youth-saving", "\uCCAD\uB144\uB0B4\uC77C\uC800\uCD95\uACC4\uC88C", "youth", "open", LABELS.period, "\uBCF5\uC9C0\uB85C \uD655\uC778", "\uADFC\uB85C \uC911\uC778 \uCCAD\uB144", "\uC790\uC0B0\uD615\uC131 \uC9C0\uC6D0", "\uBCF5\uC9C0\uB85C", "https://www.bokjiro.go.kr/"],
+
+  ["smallbiz-digital", "\uC18C\uC0C1\uACF5\uC778 \uB514\uC9C0\uD138 \uC804\uD658 \uC9C0\uC6D0", "smallbiz", "open", LABELS.period, "\uAE30\uAD00\uBCC4 \uACF5\uACE0 \uD655\uC778", "\uC18C\uC0C1\uACF5\uC778", "\uCD5C\uB300 100\uB9CC\uC6D0", "\uC18C\uC0C1\uACF5\uC77824", "https://www.sbiz24.kr/"],
+  ["smallbiz-fund", "\uC18C\uC0C1\uACF5\uC778 \uC815\uCC45\uC790\uAE08", "smallbiz", "open", LABELS.period, "\uC790\uAE08\uBCC4 \uD655\uC778", "\uC18C\uC0C1\uACF5\uC778", "\uC815\uCC45\uC790\uAE08 \uC735\uC790", "\uC18C\uC0C1\uACF5\uC778\uC815\uCC45\uC790\uAE08", "https://ols.semas.or.kr/"],
+  ["smallbiz-electric", "\uC18C\uC0C1\uACF5\uC778 \uC804\uAE30\uC694\uAE08 \uC9C0\uC6D0", "smallbiz", "open", LABELS.period, LABELS.check, "\uC804\uAE30\uC694\uAE08 \uBD80\uB2F4 \uC18C\uC0C1\uACF5\uC778", "\uC804\uAE30\uC694\uAE08 \uC77C\uBD80 \uC9C0\uC6D0", "\uC18C\uC0C1\uACF5\uC77824", "https://www.sbiz24.kr/"],
+  ["smallbiz-online", "\uC18C\uC0C1\uACF5\uC778 \uC628\uB77C\uC778 \uD310\uB85C\uC9C0\uC6D0", "smallbiz", "open", LABELS.period, "\uC18C\uC0C1\uACF5\uC77824 \uD655\uC778", "\uC628\uB77C\uC778 \uC9C4\uCD9C \uD76C\uB9DD \uC0AC\uC5C5\uC790", "\uD310\uB85C\u00B7\uB9C8\uCF00\uD305 \uC9C0\uC6D0", "\uC18C\uC0C1\uACF5\uC77824", "https://www.sbiz24.kr/"],
+
+  ["startup-basic", "\uCD08\uAE30 \uCC3D\uC5C5\uD328\uD0A4\uC9C0", "startup", "open", LABELS.period, "K-Startup \uD655\uC778", "\uC608\uBE44\uCC3D\uC5C5\uC790", "\uC0AC\uC5C5\uD654 \uC790\uAE08", "K-Startup", "https://www.k-startup.go.kr/"],
+  ["startup-pre", "\uC608\uBE44\uCC3D\uC5C5\uD328\uD0A4\uC9C0", "startup", "open", LABELS.period, "K-Startup \uD655\uC778", "\uC608\uBE44\uCC3D\uC5C5\uC790", "\uC0AC\uC5C5\uD654 \uC9C0\uC6D0", "K-Startup", "https://www.k-startup.go.kr/"],
+  ["startup-leap", "\uCC3D\uC5C5 \uB3C4\uC57D\uD328\uD0A4\uC9C0", "startup", "deadline", LABELS.end, "K-Startup \uD655\uC778", "\uCC3D\uC5C5\uAE30\uC5C5", "\uCD5C\uB300 3\uC5B5\uC6D0", "K-Startup", "https://www.k-startup.go.kr/"],
+  ["tips", "TIPS \uD504\uB85C\uADF8\uB7A8", "startup", "open", LABELS.period, LABELS.check, "\uAE30\uC220\uCC3D\uC5C5 \uC2A4\uD0C0\uD2B8\uC5C5", "R&D \uC9C0\uC6D0", "TIPS", "https://www.jointips.or.kr/"],
+
+  ["jeonse", "\uBC84\uD300\uBAA9 \uC804\uC138\uC790\uAE08\uB300\uCD9C", "housing", "open", LABELS.period, "\uC0C1\uD488\uBCC4 \uD655\uC778", "\uBB34\uC8FC\uD0DD \uC138\uB300\uC8FC", "\uC804\uC138\uC790\uAE08 \uB300\uCD9C", "\uC8FC\uD0DD\uB3C4\uC2DC\uAE30\uAE08", "https://nhuf.molit.go.kr/"],
+  ["newlywed", "\uC2E0\uD63C\uBD80\uBD80 \uC804\uC138\uC790\uAE08 \uC9C0\uC6D0", "housing", "open", LABELS.period, "\uC9C0\uC790\uCCB4 \uD655\uC778", "\uC2E0\uD63C\uBD80\uBD80", "\uC774\uC790 \uC77C\uBD80 \uC9C0\uC6D0", "\uC815\uBD8024", "https://www.gov.kr/"],
+  ["housing-benefit", "\uC8FC\uAC70\uAE09\uC5EC", "housing", "open", LABELS.period, "\uC0C1\uC2DC \uC2E0\uCCAD \uD655\uC778", "\uC18C\uB4DD\uC778\uC815\uC561 \uAE30\uC900 \uAC00\uAD6C", "\uC784\uCC28\uB8CC \uC9C0\uC6D0", "\uBCF5\uC9C0\uB85C", "https://www.bokjiro.go.kr/"],
+
+  ["eitc", "\uADFC\uB85C\uC7A5\uB824\uAE08", "welfare", "open", LABELS.period, "\uAD6D\uC138\uCCAD \uD655\uC778", "\uC18C\uB4DD\uC694\uAC74 \uCDA9\uC871 \uAC00\uAD6C", "\uAC00\uAD6C\uBCC4 \uC9C0\uAE09", "\uAD6D\uC138\uCCAD \uD648\uD0DD\uC2A4", "https://www.hometax.go.kr/"],
+  ["culture", "\uBB38\uD654\uB204\uB9AC\uCE74\uB4DC", "welfare", "open", LABELS.period, "\uC5F0\uB3C4\uBCC4 \uD655\uC778", "\uAE30\uCD08\uC0DD\uD65C\uC218\uAE09\uC790", "\uBB38\uD654\u00B7\uC5EC\uD589 \uBC14\uC6B0\uCC98", "\uBB38\uD654\uB204\uB9AC", "https://www.mnuri.kr/"],
+  ["energy", "\uC5D0\uB108\uC9C0\uBC14\uC6B0\uCC98", "welfare", "open", LABELS.period, LABELS.check, "\uCDE8\uC57D\uACC4\uCE35 \uAC00\uAD6C", "\uC5D0\uB108\uC9C0\uBE44 \uC9C0\uC6D0", "\uC5D0\uB108\uC9C0\uBC14\uC6B0\uCC98", "https://www.energyv.or.kr/"],
+
+  ["seoul-youth", "\uC11C\uC6B8\uC2DC \uCCAD\uB144\uC218\uB2F9", "local", "open", LABELS.period, "\uC11C\uC6B8\uC2DC \uD655\uC778", "\uC11C\uC6B8 \uAC70\uC8FC \uCCAD\uB144", "\uD65C\uB3D9\uC9C0\uC6D0\uAE08", "\uCCAD\uB144\uBABD\uB545\uC815\uBCF4\uD1B5", "https://youth.seoul.go.kr/"],
+  ["gg-youth", "\uACBD\uAE30\uB3C4 \uCCAD\uB144\uAE30\uBCF8\uC18C\uB4DD", "local", "open", LABELS.period, "\uACBD\uAE30\uB3C4 \uD655\uC778", "\uACBD\uAE30\uB3C4 \uAC70\uC8FC \uCCAD\uB144", "\uBD84\uAE30\uBCC4 \uC9C0\uC6D0", "\uC7A1\uC544\uBC14", "https://apply.jobaba.net/"],
+  ["busan-youth", "\uBD80\uC0B0 \uCCAD\uB144 \uC9C0\uC6D0\uAE08", "local", "open", LABELS.period, "\uBD80\uC0B0\uC2DC \uD655\uC778", "\uBD80\uC0B0 \uAC70\uC8FC \uCCAD\uB144", "\uD65C\uB3D9\uBE44 \uC9C0\uC6D0", "\uBD80\uC0B0\uAD11\uC5ED\uC2DC", "https://www.busan.go.kr/"]
 ].map(function (item) {
+  var categoryKey = item[2];
+  var statusKey = item[3];
   return {
     slug: item[0],
     title: item[1],
-    category: item[2],
-    categoryTone: item[3],
-    status: item[4],
-    statusTone: item[5],
-    group: item[6],
-    periodLabel: item[7],
-    period: item[8],
-    target: item[9],
-    amount: item[10],
-    sourceName: item[11],
-    sourceUrl: item[12],
+    categoryKey: categoryKey,
+    category: LABELS[categoryKey],
+    categoryTone: item[2] === "youth" ? "blue" : item[2] === "smallbiz" || item[2] === "local" ? "mint" : item[2] === "startup" ? "orange" : "purple",
+    status: LABELS[statusKey],
+    statusTone: statusKey === "deadline" ? "amber" : "green",
+    group: statusKey === "deadline" ? "deadline" : "open",
+    periodLabel: item[4],
+    period: item[5],
+    target: item[6],
+    amount: item[7],
+    sourceName: item[8],
+    sourceUrl: item[9],
     link: "./article.html?slug=" + item[0],
     updatedAt: "2026-06-23"
   };
