@@ -1,6 +1,9 @@
 (function () {
   var programs = window.SUPPORT_PROGRAMS || [];
-  var category = document.body.getAttribute("data-category");
+  var params = new URLSearchParams(window.location.search);
+  var category = params.get("category") || document.body.getAttribute("data-category") || "전체";
+  var title = document.querySelector("[data-category-title]");
+  var intro = document.querySelector("[data-category-intro]");
   var list = document.querySelector("[data-category-list]");
   var count = document.querySelector("[data-category-count]");
   var search = document.querySelector("[data-category-search]");
@@ -76,6 +79,11 @@
 
     if (count) count.textContent = items.length + "건";
     list.innerHTML = items.length ? items.map(card).join("") : '<p class="empty-message">조건에 맞는 지원사업이 없습니다. 공식 공고가 확인되면 업데이트됩니다.</p>';
+  }
+
+  if (title) title.textContent = category;
+  if (intro && category !== "전체") {
+    intro.textContent = category + " 관련 지원사업과 지원금을 한곳에서 확인하세요.";
   }
 
   chips.forEach(function (chip) {

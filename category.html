@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="지원바라에서 정부지원금과 지원사업을 검색해보세요.">
-  <title>지원사업 검색 - 지원바라</title>
+  <meta name="description" content="지원바라 카테고리별 정부지원금과 지원사업 목록입니다.">
+  <title>카테고리 - 지원바라</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
-<body data-category="전체">
+<body>
   <main class="legal-page category-page">
     <a class="brand" href="./index.html"><span class="brand-mark">✣</span><span>지원바라</span></a>
     <section class="category-hero">
       <div>
-        <h1>지원사업 검색</h1>
-        <p id="search-summary">지원사업명, 대상, 지원금, 공식기관을 기준으로 검색합니다.</p>
+        <h1 data-category-title>카테고리</h1>
+        <p data-category-intro>지원사업과 지원금을 한곳에서 확인하세요.</p>
       </div>
       <strong class="category-count" data-category-count>0건</strong>
     </section>
     <section class="category-tools">
-      <input data-category-search type="search" placeholder="검색어를 입력하세요">
+      <input data-category-search type="search" placeholder="지원사업 검색">
       <div class="filter-chips">
         <button class="active" type="button" data-filter-status="전체">전체</button>
         <button type="button" data-filter-status="신청중">신청중</button>
@@ -29,20 +29,5 @@
   </main>
   <script src="./programs.js"></script>
   <script src="./category.js"></script>
-  <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      var keyword = params.get("q") || "";
-      var input = document.querySelector("[data-category-search]");
-      var summary = document.getElementById("search-summary");
-      if (input && keyword) {
-        input.value = keyword;
-        input.dispatchEvent(new Event("input"));
-      }
-      if (summary && keyword) {
-        summary.textContent = '"' + keyword + '" 검색 결과입니다.';
-      }
-    }());
-  </script>
 </body>
 </html>
