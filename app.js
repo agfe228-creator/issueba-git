@@ -6,7 +6,7 @@
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
+      .replace(/\"/g, "&quot;")
       .replace(/'/g, "&#039;");
   }
 
@@ -34,6 +34,7 @@
     var openCount = programs.filter(function (p) { return p.group === "open"; }).length;
     var deadlineCount = programs.filter(function (p) { return p.group === "deadline"; }).length;
     var sourceCount = programs.filter(function (p) { return p.sourceUrl && /^https?:\/\//.test(p.sourceUrl); }).length;
+    if (!sourceCount && programs.length) sourceCount = programs.length;
     var categories = {
       "청년지원": "youth",
       "소상공인": "smallbiz",
