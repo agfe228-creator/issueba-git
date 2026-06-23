@@ -32,11 +32,14 @@
   };
 
   var tip = categoryTips[program.category] || "지원사업은 기관별 공고에 따라 신청 조건과 제출 서류가 달라질 수 있습니다. 요약 정보만 보고 신청하기보다 공식 공고문을 함께 확인하는 것이 안전합니다.";
+  var canonical = document.querySelector('link[rel="canonical"]') || document.createElement("link");
+  canonical.setAttribute("rel", "canonical");
+  canonical.setAttribute("href", "https://issueba.com/article.html?slug=" + encodeURIComponent(program.slug));
+  document.head.appendChild(canonical);
 
   document.title = program.title + " - 지원바라";
   root.innerHTML = [
     '<a class="brand" href="./index.html"><span class="brand-mark">✣</span><span>지원바라</span></a>',
-    '<link rel="canonical" href="https://issueba.com/article.html?slug=' + escapeHtml(program.slug) + '">',
     "<h1>" + escapeHtml(program.title) + "</h1>",
     "<section><h2>핵심 요약</h2><ul>",
     "<li><strong>분류:</strong> " + escapeHtml(program.category) + "</li>",
