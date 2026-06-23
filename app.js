@@ -33,6 +33,7 @@
   function setRealCounts() {
     var openCount = programs.filter(function (p) { return p.group === "open"; }).length;
     var deadlineCount = programs.filter(function (p) { return p.group === "deadline"; }).length;
+    var sourceCount = programs.filter(function (p) { return p.sourceUrl && /^https?:\/\//.test(p.sourceUrl); }).length;
     var categories = {
       "청년지원": "youth",
       "소상공인": "smallbiz",
@@ -43,7 +44,7 @@
     };
 
     document.querySelectorAll(".status-column .stat-card strong, .mobile-stats .stat-card strong").forEach(function (item, index) {
-      var values = [programs.length + "건", openCount + "건", deadlineCount + "건", "0건"];
+      var values = [programs.length + "건", openCount + "건", deadlineCount + "건", sourceCount + "건"];
       item.textContent = values[index % 4];
     });
 
