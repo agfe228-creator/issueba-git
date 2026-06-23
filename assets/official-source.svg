@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">공식 출처 확인 안내</title>
+  <desc id="desc">공식기관 링크와 공고 확인을 상징하는 안내 이미지</desc>
+  <rect width="640" height="420" rx="28" fill="#f7fbf8"/>
+  <rect x="96" y="88" width="448" height="252" rx="24" fill="#ffffff" stroke="#bbf7d0" stroke-width="4"/>
+  <path d="M320 48l132 74H188l132-74z" fill="#16a34a"/>
+  <rect x="214" y="142" width="52" height="118" rx="10" fill="#dcfce7"/>
+  <rect x="294" y="142" width="52" height="118" rx="10" fill="#dcfce7"/>
+  <rect x="374" y="142" width="52" height="118" rx="10" fill="#dcfce7"/>
+  <rect x="180" y="272" width="280" height="24" rx="12" fill="#16a34a"/>
+  <circle cx="484" cy="278" r="54" fill="#eff6ff" stroke="#2563eb" stroke-width="8"/>
+  <path d="M460 279l16 16 35-43" fill="none" stroke="#2563eb" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
