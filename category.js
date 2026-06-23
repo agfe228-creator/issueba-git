@@ -18,12 +18,16 @@
       .replace(/'/g, "&#039;");
   }
 
+  function setMeta(name, content) {
+    var meta = document.querySelector('meta[name="' + name + '"]') || document.createElement("meta");
+    meta.setAttribute("name", name);
+    meta.setAttribute("content", content);
+    document.head.appendChild(meta);
+  }
+
   function resolveLink(link) {
     var value = String(link || "#");
     if (/^https?:\/\//.test(value) || value.charAt(0) === "#") return value;
-    if (window.location.pathname.indexOf("/categories/") > -1 && value.indexOf("./") === 0) {
-      return "." + value;
-    }
     return value;
   }
 
@@ -63,14 +67,7 @@
     var items = programs.filter(function (program) {
       var categoryMatch = category === "전체" || program.category === category;
       var statusMatch = status === "전체" || program.status === status;
-      var haystack = [
-        program.title,
-        program.category,
-        program.status,
-        program.target,
-        program.amount,
-        program.sourceName
-      ].join(" ").toLowerCase();
+      var haystack = [program.title, program.category, program.status, program.target, program.amount, program.sourceName].join(" ").toLowerCase();
       var keywordMatch = !keyword || haystack.indexOf(keyword) > -1 || normalizeSearch(haystack).indexOf(normalizedKeyword) > -1;
       return categoryMatch && statusMatch && keywordMatch;
     }).sort(function (a, b) {
@@ -83,7 +80,16 @@
 
   if (title) title.textContent = category;
   if (intro && category !== "전체") {
-    intro.textContent = category + " 관련 지원사업과 지원금을 한곳에서 확인하세요.";
+    intro.textContent = category + " 관련 지원사업을 대상, 지원 내용, 신청 전 확인사항, 공식 출처 기준으로 정리했습니다.";
+  }
+
+  if (category !== "전체") {
+    document.title = category + " 지원사업 - 지원바라";
+    setMeta("description", category + " 정부지원금과 지원사업 목록입니다. 대상, 지원 내용, 공식 출처를 함께 확인하세요.");
+    var canonical = document.querySelector('link[rel="canonical"]') || document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    canonical.setAttribute("href", "https://issueba.com/category.html?category=" + encodeURIComponent(category));
+    document.head.appendChild(canonical);
   }
 
   chips.forEach(function (chip) {
