@@ -1,0 +1,72 @@
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+.post-page,
+.legal-page,
+.post-card,
+.post-card article,
+.post-page article {
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.post-visual,
+.post-page img,
+.legal-page img,
+.post-card img,
+article img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+  object-fit: contain !important;
+}
+
+.common-footer {
+  margin-top: 34px;
+  padding-top: 22px;
+  border-top: 1px solid #e8edf4;
+}
+
+.common-footer p {
+  margin: 0 0 12px;
+  color: #687386;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.common-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.common-footer a {
+  color: #075eea !important;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .post-page,
+  .legal-page {
+    width: calc(100% - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .post-visual,
+  .post-page img,
+  .legal-page img,
+  .post-card img,
+  article img {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+}
