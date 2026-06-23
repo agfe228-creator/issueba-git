@@ -2,9 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://issueba.com/</loc><lastmod>2026-06-24</lastmod><priority>1.0</priority></url>
   <url><loc>https://issueba.com/about.html</loc><lastmod>2026-06-24</lastmod><priority>0.7</priority></url>
+  <url><loc>https://issueba.com/about/</loc><lastmod>2026-06-24</lastmod><priority>0.7</priority></url>
   <url><loc>https://issueba.com/contact.html</loc><lastmod>2026-06-24</lastmod><priority>0.6</priority></url>
+  <url><loc>https://issueba.com/contact/</loc><lastmod>2026-06-24</lastmod><priority>0.6</priority></url>
   <url><loc>https://issueba.com/privacy.html</loc><lastmod>2026-06-24</lastmod><priority>0.6</priority></url>
+  <url><loc>https://issueba.com/privacy-policy/</loc><lastmod>2026-06-24</lastmod><priority>0.6</priority></url>
   <url><loc>https://issueba.com/policy.html</loc><lastmod>2026-06-24</lastmod><priority>0.6</priority></url>
+  <url><loc>https://issueba.com/source-policy.html</loc><lastmod>2026-06-24</lastmod><priority>0.6</priority></url>
   <url><loc>https://issueba.com/guide.html</loc><lastmod>2026-06-24</lastmod><priority>0.7</priority></url>
   <url><loc>https://issueba.com/faq.html</loc><lastmod>2026-06-24</lastmod><priority>0.6</priority></url>
   <url><loc>https://issueba.com/notices.html</loc><lastmod>2026-06-24</lastmod><priority>0.5</priority></url>
