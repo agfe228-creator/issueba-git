@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="지원바라 공지사항 상세 안내입니다.">
+  <title>공지사항 - 지원바라</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="legal-page" id="notice-root">
+    <a class="brand" href="./index.html"><span class="brand-mark">✣</span><span>지원바라</span></a>
+    <h1>공지사항</h1>
+    <p>공지사항을 불러오는 중입니다.</p>
+  </main>
+  <script>
+    (function () {
+      var notices = {
+        "youth-policy": {
+          title: "2026년 청년지원 정책 확인 안내",
+          date: "2026.06.23",
+          body: "청년 월세, 취업지원, 자산형성, 주거지원 등 청년 대상 지원사업은 기관별 공고 일정이 다를 수 있습니다. 지원바라는 공식기관 자료를 기준으로 주요 지원사업을 정리하고 있으며, 신청 전 반드시 공식 출처에서 최신 내용을 확인해 주세요."
+        },
+        "smallbiz-check": {
+          title: "소상공인 지원사업 신청 전 확인사항 안내",
+          date: "2026.06.20",
+          body: "소상공인 지원사업은 업종, 매출, 사업장 소재지, 기존 지원 이력에 따라 신청 가능 여부가 달라질 수 있습니다. 신청 전 사업자등록 정보, 제출서류, 접수기간, 자부담 여부를 확인하는 것이 좋습니다."
+        },
+        "site-update": {
+          title: "지원사업 정보 업데이트 안내",
+          date: "2026.06.18",
+          body: "지원바라는 정부지원금과 지원사업 정보를 카테고리별로 정리하고 있습니다. 접수 기간과 지원금은 기관 사정에 따라 변경될 수 있으므로, 각 상세 페이지의 공식 출처 링크를 함께 확인해 주세요."
+        },
+        "privacy-update": {
+          title: "개인정보처리방침 개정 안내",
+          date: "2026.06.15",
+          body: "지원바라는 문의 응대와 사이트 운영에 필요한 최소한의 정보만을 처리합니다. 개인정보 관련 문의는 agfe228@gmail.com 으로 연락해 주세요."
+        }
+      };
+      var params = new URLSearchParams(window.location.search);
+      var notice = notices[params.get("notice")] || notices["site-update"];
+      var root = document.getElementById("notice-root");
+      document.title = notice.title + " - 지원바라";
+      root.innerHTML = '<a class="brand" href="./index.html"><span class="brand-mark">✣</span><span>지원바라</span></a><h1>' + notice.title + '</h1><p><strong>작성일:</strong> ' + notice.date + '</p><p>' + notice.body + '</p><p><a href="./notices.html">공지사항 목록으로 돌아가기</a></p>';
+    }());
+  </script>
+</body>
+</html>
