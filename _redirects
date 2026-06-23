@@ -1,0 +1,15 @@
+/about/ /about.html 200
+/contact/ /contact.html 200
+/privacy-policy/ /privacy.html 200
+/privacy/ /privacy.html 200
+/operating-policy/ /policy.html 200
+/source-policy/ /source-policy.html 200
+/guide/ /guide.html 200
+/faq/ /faq.html 200
+/notices/ /notices.html 200
+/posts/ /posts.html 200
+/deadline/ /deadline.html 200
+
+http://issueba.com/* https://issueba.com/:splat 301
+https://www.issueba.com/* https://issueba.com/:splat 301
+http://www.issueba.com/* https://issueba.com/:splat 301
