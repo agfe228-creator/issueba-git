@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /search.html
 Disallow: /saved.html
+Disallow: /article.html
 
 Sitemap: https://issueba.com/sitemap.xml
