@@ -5,11 +5,26 @@ var LABELS = {
   housing: "주거지원",
   welfare: "복지혜택",
   local: "지역별 지원금",
-  open: "신청중",
-  deadline: "마감임박",
+  open: "공고 확인",
+  deadline: "마감 확인",
   period: "기간",
   end: "마감",
   check: "공식 공고 확인"
+};
+
+var STATIC_ARTICLES = {
+  "youth-rent": "youth-rent.html",
+  "kua-youth": "kua-youth.html",
+  "youth-leap-account": "youth-leap-account.html",
+  "smallbiz-fund": "smallbiz-fund.html",
+  "smallbiz-digital": "smallbiz-digital.html",
+  "startup-basic": "startup-basic.html",
+  "startup-pre": "startup-pre.html",
+  "jeonse": "jeonse.html",
+  "housing-benefit": "housing-benefit.html",
+  "eitc": "eitc.html",
+  "culture": "culture.html",
+  "seoul-youth": "seoul-youth.html"
 };
 
 window.SUPPORT_PROGRAMS = [
@@ -84,7 +99,7 @@ window.SUPPORT_PROGRAMS = [
     amount: item[7],
     sourceName: item[8],
     sourceUrl: item[9],
-    link: "./article.html?slug=" + item[0],
-    updatedAt: "2026-06-23"
+    link: STATIC_ARTICLES[item[0]] || ("./article.html?slug=" + item[0]),
+    updatedAt: "2026-06-24"
   };
 });
