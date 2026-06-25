@@ -28,7 +28,7 @@ function decorateHtml(html) {
     next = next.replace(/<head>/i, `<head>\n  ${ADSENSE_META}`);
   }
 
-  if (!/ca-pub-4558482087323814/i.test(next)) {
+  if (!/pagead2\.googlesyndication\.com/i.test(next)) {
     next = next.replace(/<\/head>/i, `  ${ADSENSE}\n</head>`);
   }
 
