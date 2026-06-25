@@ -1,3 +1,4 @@
+const ADSENSE_META = '<meta name="google-adsense-account" content="ca-pub-4558482087323814">';
 const ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4558482087323814" crossorigin="anonymous"></script>';
 
 const FOOTER = `
@@ -22,6 +23,10 @@ function decorateHtml(html) {
   let next = html
     .replace(/\.\/styles\.css(\?[^"']*)?(["'])/g, './styles.css?v=20260624c$2')
     .replace(/href="\/styles\.css(\?[^"']*)?"/g, 'href="/styles.css?v=20260624c"');
+
+  if (!/google-adsense-account/i.test(next)) {
+    next = next.replace(/<head>/i, `<head>\n  ${ADSENSE_META}`);
+  }
 
   if (!/ca-pub-4558482087323814/i.test(next)) {
     next = next.replace(/<\/head>/i, `  ${ADSENSE}\n</head>`);
