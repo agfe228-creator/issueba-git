@@ -40,53 +40,24 @@ const PROGRAMS = [
   { slug: 'busan-youth', title: '부산 청년 디딤돌카드', category: '지역별 지원금', status: '공고 확인', period: '부산시 공고 확인', target: '부산 거주 미취업 청년', amount: '구직활동비 지원', sourceName: '부산광역시', sourceUrl: 'https://www.busan.go.kr/' },
   { slug: 'incheon-exam', title: '인천 청년 자격증 응시료 지원', category: '지역별 지원금', status: '공고 확인', period: '인천시 공고 확인', target: '인천 거주 청년', amount: '자격시험 응시료 일부 지원', sourceName: '인천광역시', sourceUrl: 'https://www.incheon.go.kr/' },
   { slug: 'daejeon-rent', title: '대전 청년 월세 지원', category: '지역별 지원금', status: '마감임박', period: '대전시 공고 확인', target: '대전 거주 무주택 청년', amount: '월세 일부 지원', sourceName: '대전광역시', sourceUrl: 'https://www.daejeon.go.kr/' },
-  { slug: 'gwangju-dream', title: '광주 청년드림수당', category: '지역별 지원금', status: '공고 확인', period: '광주시 공고 확인', target: '광주 거주 미취업 청년', amount: '구직활동비 지원', sourceName: '광주광역시', sourceUrl: 'https://www.gwangju.go.kr/' }
+  { slug: 'gwangju-dream', title: '광주 청년드림수당', category: '지역별 지원금', status: '공고 확인', period: '광주광역시 공고 확인', target: '광주 거주 미취업 청년', amount: '구직활동비 지원', sourceName: '광주광역시', sourceUrl: 'https://www.gwangju.go.kr/' }
 ];
 
 const CATEGORY_GUIDES = {
-  '청년지원': {
-    title: '청년지원 신청 전 확인사항',
-    body: '청년지원은 나이, 거주지, 소득, 취업 상태에 따라 신청 가능 여부가 크게 달라집니다. 같은 청년 사업이라도 월세·취업·자산형성·주거 분야의 기준이 다르므로, 신청 전 공식 공고에서 기준일과 제출서류를 먼저 확인하는 것이 안전합니다.',
-    tips: ['만 나이 기준일 확인', '소득·재산 산정 방식 확인', '중복 참여 제한 여부 확인']
-  },
-  '소상공인': {
-    title: '소상공인 지원사업 확인 포인트',
-    body: '소상공인 지원은 업종, 매출 규모, 사업자등록 상태, 휴·폐업 여부에 따라 대상이 달라집니다. 특히 정책자금과 보조금은 접수 예산이 조기 소진될 수 있어 공고일, 접수 시작일, 필요 서류를 함께 확인해야 합니다.',
-    tips: ['사업자등록증 정보 일치 여부 확인', '업종 제한 확인', '자금별 접수 기간과 예산 소진 여부 확인']
-  },
-  '창업지원': {
-    title: '창업지원사업 신청 전략',
-    body: '창업지원은 예비창업, 초기창업, 도약기 기업처럼 창업 연차에 따라 신청 가능한 사업이 나뉩니다. 사업계획서, 증빙자료, 발표평가가 필요한 경우가 많으므로 지원금 규모만 보지 말고 평가 항목과 의무사항까지 확인해야 합니다.',
-    tips: ['창업 연차 기준 확인', '사업계획서 제출 항목 확인', '협약 후 의무사항과 정산 기준 확인']
-  },
-  '주거지원': {
-    title: '주거지원 신청 전 주의사항',
-    body: '주거지원은 무주택 여부, 세대주 요건, 임대차계약, 보증금·월세 기준을 함께 봅니다. 대출성 상품은 금리와 상환 조건까지 확인해야 하며, 보조금성 사업은 지자체별 공고가 다를 수 있습니다.',
-    tips: ['무주택·세대주 기준 확인', '임대차계약서와 전입 조건 확인', '소득·자산 기준 및 중복 지원 제한 확인']
-  },
-  '복지혜택': {
-    title: '복지혜택 공식 확인 기준',
-    body: '복지혜택은 가구원 수, 소득인정액, 수급 자격, 이용 기간에 따라 지원 내용이 달라집니다. 신청 가능한 것처럼 보여도 실제 선정은 주민센터, 복지로, 국세청 등 공식기관 기준으로 판단됩니다.',
-    tips: ['가구 기준과 소득인정액 확인', '신청 기간과 사용 기간 구분', '기존 수급 자격과 중복 가능 여부 확인']
-  },
-  '지역별 지원금': {
-    title: '지역별 지원금 확인 방법',
-    body: '지역별 지원금은 거주지, 전입일, 연령, 지역 내 활동 요건이 중요합니다. 같은 청년 또는 소상공인 지원이라도 시·도와 시·군·구마다 접수 방식이 다르므로 해당 지자체 공고를 우선 확인해야 합니다.',
-    tips: ['주민등록상 거주 기준 확인', '지역별 접수 사이트 확인', '예산 소진 및 선착순 여부 확인']
-  },
-  '전체': {
-    title: '지원사업 전체 보기 안내',
-    body: '지원바라는 정부·공공기관의 공식 공고를 기준으로 청년, 소상공인, 창업, 주거, 복지, 지역별 지원사업을 정리합니다. 각 글은 신청 대행이 아니라 공식 출처 확인을 돕는 정보 페이지입니다.',
-    tips: ['지원 대상과 신청기간 확인', '공식 출처 링크 확인', '제출서류와 제외 조건 확인']
-  }
+  '청년지원': { title: '청년지원 신청 전 확인사항', body: '청년지원은 나이, 거주지, 소득, 취업 상태에 따라 신청 가능 여부가 크게 달라집니다. 같은 청년 사업이라도 월세·취업·자산형성·주거 분야의 기준이 다르므로, 신청 전 공식 공고에서 기준일과 제출서류를 먼저 확인하는 것이 안전합니다.', tips: ['만 나이 기준일 확인', '소득·재산 산정 방식 확인', '중복 참여 제한 여부 확인'] },
+  '소상공인': { title: '소상공인 지원사업 확인 포인트', body: '소상공인 지원은 업종, 매출 규모, 사업자등록 상태, 휴·폐업 여부에 따라 대상이 달라집니다. 특히 정책자금과 보조금은 접수 예산이 조기 소진될 수 있어 공고일, 접수 시작일, 필요 서류를 함께 확인해야 합니다.', tips: ['사업자등록증 정보 일치 여부 확인', '업종 제한 확인', '자금별 접수 기간과 예산 소진 여부 확인'] },
+  '창업지원': { title: '창업지원사업 신청 전략', body: '창업지원은 예비창업, 초기창업, 도약기 기업처럼 창업 연차에 따라 신청 가능한 사업이 나뉩니다. 사업계획서, 증빙자료, 발표평가가 필요한 경우가 많으므로 지원금 규모만 보지 말고 평가 항목과 의무사항까지 확인해야 합니다.', tips: ['창업 연차 기준 확인', '사업계획서 제출 항목 확인', '협약 후 의무사항과 정산 기준 확인'] },
+  '주거지원': { title: '주거지원 신청 전 주의사항', body: '주거지원은 무주택 여부, 세대주 요건, 임대차계약, 보증금·월세 기준을 함께 봅니다. 대출성 상품은 금리와 상환 조건까지 확인해야 하며, 보조금성 사업은 지자체별 공고가 다를 수 있습니다.', tips: ['무주택·세대주 기준 확인', '임대차계약서와 전입 조건 확인', '소득·자산 기준 및 중복 지원 제한 확인'] },
+  '복지혜택': { title: '복지혜택 공식 확인 기준', body: '복지혜택은 가구원 수, 소득인정액, 수급 자격, 이용 기간에 따라 지원 내용이 달라집니다. 신청 가능한 것처럼 보여도 실제 선정은 주민센터, 복지로, 국세청 등 공식기관 기준으로 판단됩니다.', tips: ['가구 기준과 소득인정액 확인', '신청 기간과 사용 기간 구분', '기존 수급 자격과 중복 가능 여부 확인'] },
+  '지역별 지원금': { title: '지역별 지원금 확인 방법', body: '지역별 지원금은 거주지, 전입일, 연령, 지역 내 활동 요건이 중요합니다. 같은 청년 또는 소상공인 지원이라도 시·도와 시·군·구마다 접수 방식이 다르므로 해당 지자체 공고를 우선 확인해야 합니다.', tips: ['주민등록상 거주 기준 확인', '지역별 접수 사이트 확인', '예산 소진 및 선착순 여부 확인'] },
+  '전체': { title: '지원사업 전체 보기 안내', body: '지원바라는 정부·공공기관의 공식 공고를 기준으로 청년, 소상공인, 창업, 주거, 복지, 지역별 지원사업을 정리합니다. 각 글은 신청 대행이 아니라 공식 출처 확인을 돕는 정보 페이지입니다.', tips: ['지원 대상과 신청기간 확인', '공식 출처 링크 확인', '제출서류와 제외 조건 확인'] }
 };
 
 const HOME_OPEN_SLUGS = ['youth-rent', 'kua-youth', 'youth-leap-account', 'youth-housing-separate', 'smallbiz-fund', 'smallbiz-digital', 'smallbiz-electric', 'startup-basic', 'startup-pre', 'tips', 'jeonse', 'eitc'];
 const HOME_DEADLINE_SLUGS = ['youth-jeonse-guarantee', 'startup-leap', 'smallbiz-return', 'daejeon-rent', 'busan-youth', 'gwangju-dream'];
 
 function shouldDecorate(html) {
-  return /<main[^>]+class="[^"]*(post-page|legal-page|category-page)[^"]*"/i.test(html) &&
-    !/class="common-footer"/i.test(html);
+  return /<main[^>]+class="[^"]*(post-page|legal-page|category-page)[^"]*"/i.test(html) && !/class="common-footer"/i.test(html);
 }
 
 function findProgram(slug) {
@@ -117,9 +88,7 @@ function categoryGuide(category) {
     <section class="category-guide" data-category-guide aria-label="카테고리별 신청 전 안내">
       <h2>${guide.title}</h2>
       <p>${guide.body}</p>
-      <ul>
-        ${guide.tips.map((tip) => `<li>${tip}</li>`).join('')}
-      </ul>
+      <ul>${guide.tips.map((tip) => `<li>${tip}</li>`).join('')}</ul>
       <p class="source-note">지원바라는 신청 대행 또는 선정 보장을 하지 않으며, 최종 조건은 각 공식기관 공고를 기준으로 확인해야 합니다.</p>
     </section>`;
 }
@@ -129,15 +98,8 @@ function injectHomeFallback(html) {
   const openCards = HOME_OPEN_SLUGS.map(findProgram).filter(Boolean).map(programCard).join('');
   const deadlineCards = HOME_DEADLINE_SLUGS.map(findProgram).filter(Boolean).map(programCard).join('');
 
-  next = next.replace(
-    /<div class="program-list" id="open-programs" data-program-list="open">\s*<\/div>/i,
-    `<div class="program-list" id="open-programs" data-program-list="open">${openCards}</div>`
-  );
-
-  next = next.replace(
-    /<div class="program-list" id="deadline-programs" data-program-list="deadline">\s*<\/div>/i,
-    `<div class="program-list" id="deadline-programs" data-program-list="deadline">${deadlineCards}</div>`
-  );
+  next = next.replace(/<div class="program-list" id="open-programs" data-program-list="open">[\s\S]*?<\/div>/i, `<div class="program-list" id="open-programs" data-program-list="open">${openCards}</div>`);
+  next = next.replace(/<div class="program-list" id="deadline-programs" data-program-list="deadline">[\s\S]*?<\/div>/i, `<div class="program-list" id="deadline-programs" data-program-list="deadline">${deadlineCards}</div>`);
 
   return next;
 }
@@ -156,18 +118,11 @@ function injectCategoryFallback(html, requestUrl) {
   }
 
   const items = PROGRAMS.filter((program) => category === '전체' || program.category === category);
-  const cards = items.length ? items.map(programCard).join('') : PROGRAMS.slice(0, 12).map(programCard).join('');
+  const cards = (items.length ? items : PROGRAMS.slice(0, 12)).map(programCard).join('');
   let next = html;
 
-  next = next.replace(
-    /<section class="category-guide" data-category-guide aria-label="카테고리별 신청 전 안내">\s*<\/section>/i,
-    categoryGuide(category)
-  );
-
-  next = next.replace(
-    /<section class="category-list" data-category-list>\s*<\/section>/i,
-    `<section class="category-list" data-category-list>${cards}</section>`
-  );
+  next = next.replace(/<section class="category-guide" data-category-guide aria-label="카테고리별 신청 전 안내">[\s\S]*?<\/section>/i, categoryGuide(category));
+  next = next.replace(/<section class="category-list" data-category-list>[\s\S]*?<\/section>/i, `<section class="category-list" data-category-list>${cards}</section>`);
 
   return next;
 }
